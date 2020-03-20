@@ -7,21 +7,27 @@ import Cheese from "../Atoms/Cheese";
 import Meat from "../Atoms/Meat";
 import BreadBottom from "../Atoms/BreadBottom";
 
-const Burger = props => {
-  const currentBurger = props.burgerState.map(item => {
-    switch (item) {
-      case "salad":
-        return <Salad />;
-      case "bacon":
-        return <Bacon />;
-      case "cheese":
-        return <Cheese />;
-      case "meat":
-        return <Meat />;
-      default:
-        return null;
-    }
-  });
+const Burger = ({ burgerState }) => {
+  let currentBurger;
+
+  if (burgerState.length === 0) {
+    currentBurger = <div>Please add ingredients!</div>;
+  } else {
+    currentBurger = burgerState.map((item, index) => {
+      switch (item) {
+        case "salad":
+          return <Salad key={index} />;
+        case "bacon":
+          return <Bacon key={index} />;
+        case "cheese":
+          return <Cheese key={index} />;
+        case "meat":
+          return <Meat key={index} />;
+        default:
+          return null;
+      }
+    });
+  }
 
   return (
     <div className={style.Burger}>
