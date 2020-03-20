@@ -1,0 +1,37 @@
+.Bread,
+.Spread {
+  justify-content: center;
+  align-items: center;
+  height: 2em;
+  margin: 0.2em 0em;
+  border-radius: 2em;
+}
+
+.Bread {
+  height: 4em;
+  width: 30%;
+  background-color: orange;
+}
+
+.Spread {
+  border: solid 2px black;
+  width: 27%;
+}
+
+.Bacon {
+  background-color: brown;
+  color: yellow;
+}
+
+.Cheese {
+  background-color: yellow;
+}
+
+.Meat {
+  background-color: red;
+  color: yellow;
+}
+
+.Salad {
+  background-color: #5af153;
+}
