@@ -8,3 +8,27 @@
   width: 30%;
   background-color: orange;
 }
+
+.Seeds {
+  height: 0.3em;
+  width: 2em;
+  transform: rotate(30deg);
+  background-color: yellow;
+  border-radius: 50%;
+  margin: 0.85em;
+  overflow: hidden;
+}
+
+.Seeds:nth-child(2),
+.Seeds:nth-child(5),
+.Seeds:nth-child(6),
+.Seeds:nth-child(9) {
+  transform: rotate(-20deg);
+}
+
+.Seeds:nth-child(4),
+.Seeds:nth-child(6),
+.Seeds:nth-child(7),
+.Seeds:nth-child(10) {
+  transform: rotate(-50deg);
+}
