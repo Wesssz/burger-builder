@@ -1,39 +1,36 @@
 import React from "react";
 import style from "./Burger.module.css";
-import Bacon from "../Atoms/Bacon";
-import BreadTop from "../Atoms/BreadTop";
-import Salad from "../Atoms/Salad";
-import Cheese from "../Atoms/Cheese";
-import Meat from "../Atoms/Meat";
-import BreadBottom from "../Atoms/BreadBottom";
+import Spread from "../Atoms/Spread";
+import Bread from "../Atoms/Bread";
 
 const Burger = ({ burgerState }) => {
-  let currentBurger;
+  let currentBurger = Object.entries(burgerState)
+    .map(item => {
+      let itemsToReturn = [];
+      let counter = item[1];
 
-  if (burgerState.length === 0) {
-    currentBurger = <div>Please add ingredients!</div>;
-  } else {
-    currentBurger = burgerState.map((item, index) => {
-      switch (item) {
-        case "salad":
-          return <Salad key={index} />;
-        case "bacon":
-          return <Bacon key={index} />;
-        case "cheese":
-          return <Cheese key={index} />;
-        case "meat":
-          return <Meat key={index} />;
-        default:
-          return null;
+      while (counter > 0) {
+        itemsToReturn = [
+          ...itemsToReturn,
+          <Spread spread={item[0]} key={item + counter} />
+        ];
+        counter -= 1;
       }
-    });
+      return itemsToReturn;
+    })
+    .reduce((arr, item) => {
+      return arr.concat(item);
+    }, []);
+
+  if (currentBurger.length === 0) {
+    currentBurger = "Please add something to your burger";
   }
 
   return (
     <div className={style.Burger}>
-      <BreadTop />
+      <Bread bread="Top" />
       {currentBurger}
-      <BreadBottom />
+      <Bread bread="Bottom" />
     </div>
   );
 };

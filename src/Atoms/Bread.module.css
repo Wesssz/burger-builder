@@ -1,0 +1,10 @@
+.Bread {
+  justify-content: center;
+  align-items: center;
+  height: 2em;
+  margin: 0.2em 0em;
+  border-radius: 2em;
+  height: 4em;
+  width: 30%;
+  background-color: orange;
+}

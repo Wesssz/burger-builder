@@ -1,39 +1,56 @@
 import React, { useState } from "react";
 import "./App.css";
 import Burger from "./Molecules/Burger";
-import ChangeContainer from "./Organisms/ChangeContainer";
+import ControlMenu from "./Organisms/ControlMenu";
 
 const App = () => {
-  const [burgerState, setBurgerState] = useState([]);
+  const [burgerState, setBurgerState] = useState({
+    Salad: 0,
+    Bacon: 0,
+    Cheese: 0,
+    Meat: 0
+  });
   const [currentPrice, setCurrentPrice] = useState(4);
 
-  const ingredients = ["bacon", "cheese", "meat", "salad"];
+  const prices = { Bacon: 1.0, Cheese: 0.8, Meat: 1.5, Salad: 0.5 };
+
+  const disabled = { ...burgerState };
+  for (let key in disabled) {
+    disabled[key] = disabled[key] <= 0;
+  }
 
   const addSpread = spread => {
-    const newBurgerState = [...burgerState, spread];
+    const newSpreadCount = burgerState[spread] + 1;
+    const newBurgerState = { ...burgerState };
+    newBurgerState[spread] = newSpreadCount;
     setBurgerState(newBurgerState);
+    const newPrice = currentPrice + prices[spread];
+    setCurrentPrice(newPrice);
   };
 
   const removeSpread = spread => {
-    const newBurgerState = [...burgerState];
-    const spreadIndex = burgerState.indexOf(spread);
-    if (spreadIndex !== -1) {
-      newBurgerState.splice(spreadIndex, 1);
-      setBurgerState([...newBurgerState]);
+    if (burgerState[spread] > 0) {
+      const newSpreadCount = burgerState[spread] - 1;
+      const newBurgerState = { ...burgerState };
+      newBurgerState[spread] = newSpreadCount;
+      setBurgerState(newBurgerState);
+      const newPrice = currentPrice - prices[spread];
+      setCurrentPrice(newPrice);
     }
   };
 
   return (
     <div className="App">
-      <div className="Temp">Burger Builder - Toolbar, SideDrawer, Backdrop</div>
+      <div className="Burger_Builder">Burger Builder</div>
       <Burger burgerState={burgerState} />
       <div style={{ width: "100%", justifyContent: "center" }}>
         Current price is ${currentPrice.toFixed(2)}
       </div>
-      <ChangeContainer
+      <ControlMenu
         addSpread={addSpread}
         removeSpread={removeSpread}
-        ingredients={ingredients}
+        burgerState={burgerState}
+        disabled={disabled}
       />
     </div>
   );
