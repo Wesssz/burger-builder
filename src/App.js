@@ -5,12 +5,12 @@ import ControlMenu from "./Organisms/ControlMenu";
 
 const App = () => {
   const [burgerState, setBurgerState] = useState({
-    Salad: 0,
-    Bacon: 0,
-    Cheese: 0,
-    Meat: 0
+    Salad: 1,
+    Bacon: 1,
+    Cheese: 1,
+    Meat: 1
   });
-  const [currentPrice, setCurrentPrice] = useState(4);
+  const [currentPrice, setCurrentPrice] = useState(7);
 
   const prices = { Bacon: 1.0, Cheese: 0.8, Meat: 1.5, Salad: 0.5 };
 

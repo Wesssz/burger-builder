@@ -8,6 +8,8 @@ const Bread = props => {
 
   return (
     <div className={style.Bread}>
+      {props.top ? <div className={style.Flag}>Wes Burgers Ltd</div> : null}
+      {props.top ? <div className={style.FlagPole}></div> : null}
       <Seeds />
       <Seeds />
       <Seeds />
