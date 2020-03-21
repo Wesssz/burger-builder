@@ -3,13 +3,16 @@ import style from "./Bread.module.css";
 
 const Bread = props => {
   const Seeds = () => {
-    return props.top ? <div className={style.Seeds}></div> : null;
+    return props.bread === "Top" ? <div className={style.Seeds}></div> : null;
   };
 
   return (
-    <div className={style.Bread}>
-      {props.top ? <div className={style.Flag}>Wes Burgers Ltd</div> : null}
-      {props.top ? <div className={style.FlagPole}></div> : null}
+    <div className={style[props.bread]}>
+      {props.bread === "Top" ? (
+        <div className={style.FlagPole}>
+          <div className={style.Flag}>Wes Burgers Ltd</div>
+        </div>
+      ) : null}
       <Seeds />
       <Seeds />
       <Seeds />

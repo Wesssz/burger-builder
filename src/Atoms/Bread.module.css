@@ -1,37 +1,45 @@
-.Bread {
+.Top,
+.Bottom {
+  position: relative;
   justify-content: center;
   align-items: center;
   height: 2em;
   margin: 0.2em 0em;
-  border-radius: 2em;
   height: 4em;
   width: 30%;
   background-color: orange;
+}
+
+.Top {
+  border-radius: 3em 3em 0.5em 0.5em;
+}
+
+.Bottom {
+  border-radius: 0.5em 0.5em 3em 3em;
+}
+
+.FlagPole {
+  display: block;
+  position: absolute;
+  bottom: 40%;
+  left: 90%;
+  z-index: 1;
+  height: 9em;
+  width: 0.4em;
+  background-color: beige;
+  border: solid 1px orange;
+  transform: rotate(10deg);
 }
 
 .Flag {
   align-items: center;
   justify-content: center;
   position: absolute;
-  right: 27%;
-  top: 19%;
+  z-index: 1;
   height: 5em;
   width: 8.5em;
   background-color: white;
   border: solid 1px orange;
-  transform: rotate(10deg);
-}
-
-.FlagPole {
-  display: block;
-  position: absolute;
-  right: 37%;
-  top: 18%;
-  height: 9em;
-  width: 0.4em;
-  background-color: beige;
-  border: solid 1px orange;
-  transform: rotate(10deg);
 }
 
 .Seeds {

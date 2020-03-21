@@ -28,7 +28,7 @@ const Burger = ({ burgerState }) => {
 
   return (
     <div className={style.Burger}>
-      <Bread bread="Top" top="top" />
+      <Bread bread="Top" />
       {currentBurger}
       <Bread bread="Bottom" />
     </div>
