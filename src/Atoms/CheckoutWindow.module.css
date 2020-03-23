@@ -1,0 +1,35 @@
+.CheckoutWindow {
+  font-size: 1.4em;
+  align-content: flex-start;
+  width: 50%;
+  height: 50%;
+  z-index: 200;
+  position: fixed;
+  background-color: white;
+  box-shadow: 3px 3px black;
+  border: solid 1px #ccc;
+  border-radius: 0.5em;
+  padding: 4em 4em;
+}
+
+.Title {
+  font-weight: bold;
+  width: 100%;
+  padding: 1em 0em;
+}
+
+.Title2 {
+  width: 100%;
+  padding: 1em 0em;
+}
+
+.Spread {
+  width: 100%;
+  padding: 1em 0em;
+  padding-left: 7%;
+}
+
+.Query {
+  width: 100%;
+  font-weight: bold;
+}
