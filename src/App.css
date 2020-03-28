@@ -16,14 +16,15 @@
   display: flex;
   justify-content: center;
   width: 100%;
+  height: 100%;
   max-width: 1920px;
   margin: auto;
 }
 
-.Burger_Builder {
+.BurgerBuilder {
   display: flex;
   justify-content: center;
   width: 100%;
+  height: 5vh;
   font-size: 2em;
-  margin: 1em 0em;
 }

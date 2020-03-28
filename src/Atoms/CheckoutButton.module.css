@@ -1,0 +1,8 @@
+.CheckoutButton {
+  height: 5em;
+  min-width: 10em;
+  margin: auto;
+  font-weight: bold;
+  border-radius: 0.5em;
+  box-shadow: 1px 1px grey;
+}

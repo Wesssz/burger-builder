@@ -1,11 +1,11 @@
 import React from "react";
-import style from "./Button.module.css";
+import style from "./CheckoutButton.module.css";
 
-const Button = ({ clickAction, button, disabled, styleClass }) => {
+const Button = ({ clickAction, button, disabled }) => {
   return (
     <button
       onClick={clickAction}
-      className={style[styleClass]}
+      className={style.CheckoutButton}
       disabled={disabled}
     >
       {button}

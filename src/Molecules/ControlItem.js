@@ -1,18 +1,22 @@
 import React from "react";
 import style from "./ControlItem.module.css";
 import Button from "../Atoms/Button";
-import SpreadText from "../Atoms/SpreadText";
 
 const ControlItem = ({ addSpread, removeSpread, spread, disabled }) => {
   return (
     <div className={style.ControlItem}>
-      <SpreadText spread={spread} />
+      <div className={style.ItemText}>{spread}</div>
       <Button
         clickAction={() => removeSpread(spread)}
-        button="Less"
+        button="-"
         disabled={disabled[spread]}
+        styleClass="AddRemove"
       />
-      <Button clickAction={() => addSpread(spread)} button="More" />
+      <Button
+        clickAction={() => addSpread(spread)}
+        button="+"
+        styleClass="AddRemove"
+      />
     </div>
   );
 };

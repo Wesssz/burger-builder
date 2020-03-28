@@ -5,7 +5,6 @@ import ControlMenu from "./Organisms/ControlMenu";
 import CheckoutModal from "./Molecules/CheckoutModal";
 import BackDrop from "./Atoms/BackDrop";
 import CheckoutWindow from "./Atoms/CheckoutWindow";
-import Button from "./Atoms/Button";
 
 const App = () => {
   const [burgerState, setBurgerState] = useState({
@@ -56,20 +55,18 @@ const App = () => {
     <div className="App">
       <CheckoutModal show={showCheckout}>
         <BackDrop click={hideCheckoutHandler} />
-        <CheckoutWindow burgerState={burgerState} />
+        <CheckoutWindow burgerState={burgerState} currentPrice={currentPrice} />
       </CheckoutModal>
-      <div className="Burger_Builder">Burger Builder</div>
+      <div className="BurgerBuilder">Burger Builder</div>
       <Burger burgerState={burgerState} />
-      <div style={{ width: "100%", justifyContent: "center" }}>
-        Current price is ${currentPrice.toFixed(2)}
-      </div>
       <ControlMenu
         addSpread={addSpread}
         removeSpread={removeSpread}
         burgerState={burgerState}
+        showCheckoutHandler={showCheckoutHandler}
         disabled={disabled}
+        currentPrice={currentPrice}
       />
-      <Button button="Go to Checkout?" clickAction={showCheckoutHandler} />
     </div>
   );
 };
